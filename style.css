@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+
+}
+
+section>div {
+    width: 22%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #111827;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+
+}
+
+
+#calculatorButtons {
+    width: 95%;
+    height: 65%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+#calculatorButtons>button {
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #1f2937;
+    color: #f9fafb;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#calculatorButtons>button:hover {
+    background-color: #374151;
+    transform: scale(0.9, 0.9);
+}
+
+
+#calculatorButtons>button:active {
+    transform: scale(0.8);
+}
+
+.openMemory {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    animation: open 0.3s forwards;
+    background-color: #0f172a;
+}
+
+.closeMemory {
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    animation: close 0.3s forwards;
+    background-color: #0f172a;
+}
+
+@keyframes open {
+    0% {
+        height: 0;
+    }
+
+    25% {
+        height: 10%;
+    }
+
+    50% {
+        height: 30%;
+    }
+
+    75% {
+        height: 50%;
+    }
+
+    100% {
+        height: 75%;
+    }
+}
+
+@keyframes close {
+    0% {
+        height: 75%;
+    }
+
+    25% {
+        height: 50%;
+    }
+
+    50% {
+        height: 30%;
+    }
+
+    75% {
+        height: 10%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+
+.closeDiv {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5%;
+}
+
+.closeDiv>.bi {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #cbd5e1;
+}
+
+.closeDiv>.bi:hover {
+    transform: scale(1.1, 1.1);
+    color: #ffffff;
+}
+
+.closeDiv>.bi:active {
+    transform: scale(0.95);
+}
+
+.display {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: 2rem;
+    color: white;
+}
+
+.memoryDiv {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.memoryDivChild {
+    width: 80%;
+    height: 13%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #1f2937;
+    color: #f9fafb;
+    border: 1px solid #374151;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.memoryDivChild:hover {
+    background-color: #374151;
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+.memoryDivChild .bi-trash {
+    color: #ef4444;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.memoryDivChild .bi-trash:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.memoryDivChild .bi-trash:active {
+    transform: scale(1);
+}
+
+.display>div:nth-child(1) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3%;
+}
+
+
+.display>div:nth-child(2) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2%;
+    margin-top: 3%;
+    font-size: 2.8rem;
+}
+
+
+.icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#calculatorButtons>.operator {
+    background-color: #f59e0b;
+    color: white;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+#calculatorButtons>.operator:hover {
+    background-color: #f59e0b;
+}
+
+#calculatorButtons>.equal {
+    background-color: #10b981;
+    color: white;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+#calculatorButtons>.equal:hover {
+    background-color: #10b981;
+}
