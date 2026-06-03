@@ -70,12 +70,13 @@ openMemory.addEventListener('click', () => {
         memory.forEach(el => {
             let div = document.createElement('div')
             div.innerHTML = `
-            <p> ${el} </p>
+            <i style='font-size:20px;'> ${el.calc[0]} </i>
+            <i style='opacity:50%;'> ${el.calc[1]} </i>
             <i class="bi bi-trash"></i>
             `
             div.className = 'memoryDivChild'
 
-            const trashMemory = div.children[1]
+            const trashMemory = div.children[2]
 
             trashMemory.addEventListener('click', () => {
                 div.remove()
@@ -95,8 +96,16 @@ openMemory.addEventListener('click', () => {
 })
 
 memoryAdd.addEventListener('click', () => {
-    memory.push(display.innerText)
-    localStorage.setItem("memory", JSON.stringify(memory))
+    console.log(calculacion);
+
+    if (!isOperator(display.innerText)) {
+        let first = display.innerText
+        let last = calculacion
+        memory.push({ calc: [first, last] })
+        localStorage.setItem("memory", JSON.stringify(memory))
+
+        calculacion = ''
+    }
 })
 
 
@@ -135,7 +144,7 @@ calculatorButtons.addEventListener('click', event => {
         } else if (clickedButtons === '=' && !isOperator(display.innerText)) {
             calculacion = display.innerText
             display.innerText = eval(display.innerText)
-        } else if (['-', '+', '/', '*', '.'].includes(clickedButtons) && !isOperator(display.innerText)) {
+        } else if (['-', '+', '/', '*', '.'].includes(clickedButtons) && !isOperator(display.innerText) && !display.innerText.includes('.')) {
             display.innerText = display.innerText + clickedButtons
         } else {
             if (!['=', 'M+', '+/-', 'x²', '1/x', '√x', '%', '.', '-', '+', '/', '*'].includes(clickedButtons)) {

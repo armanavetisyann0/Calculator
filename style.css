@@ -156,6 +156,9 @@ section>div {
     align-items: flex-end;
     font-size: 2rem;
     color: white;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: right;
 }
 
 .memoryDiv {
@@ -166,6 +169,8 @@ section>div {
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
+    height: 350px;
+    overflow-y: auto;
 }
 
 .memoryDivChild {
